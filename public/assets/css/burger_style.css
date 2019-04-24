@@ -1,0 +1,43 @@
+body{
+    font-family: 'Raleway', sans-serif;
+} 
+
+h1{
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 5px 5px brown;
+}
+
+h2{
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 5px 5px brown;
+}
+
+h3{
+    font-size: 18px;
+}
+
+p{
+    font-size: 14px;
+}
+
+li{
+    margin: 20px;
+}
+img{
+    filter: drop-shadow(1px 5px 5px brown);
+}
+
+.col-lg-10{
+    background-color: rgb(180, 122, 13);
+    padding: 30px;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 14px 28px 0 grey, 0 16px 20px 0 grey;
+}
+
+#create-burger{
+    width:100%;
+}
