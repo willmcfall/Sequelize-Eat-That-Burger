@@ -24,7 +24,5 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.listen(PORT, console.log(`Server listening on: http://localhost: ${PORT}`));
 
-db.sequelize.sync({ force: true }).then(() => {
-  db.authenticate().then(() => console.log('Databae connected...'))
-    .catch(err => console.log(`Error: ${err}`));
-});
+db.sequelize.sync({ force: true }).then(() => console.log('Database connected...'))
+  .catch(err => console.log(`Error: ${err}`));
