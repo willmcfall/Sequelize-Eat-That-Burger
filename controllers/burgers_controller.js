@@ -1,36 +1,33 @@
 /* eslint-disable func-names */
-/* eslint-disable prefer-arrow-callback */
+// /* eslint-disable func-names */
+// /* eslint-disable prefer-arrow-callback */
 
 const db = require('../models');
 
 module.exports = function (app) {
-  app.get('/', function (req, res) {
-    db.burger.findAll({}).then(function (data) {
-      res.json(data);
+  // Get all examples
+  app.get('/', (req, res) => {
+    db.burgers.findAll({}).then((dbExamples) => {
+      res.json(dbExamples);
+      console.log("get request successful");
     });
   });
 
-  app.post('/api/burgers', function (req, res) {
-    db.burger.create(req.body).then(function (data) {
-      res.json(data);
+  // Create a new example
+  app.post('/api/burgers', (req, res) => {
+    db.burgers.create(req.body).then((dbExample) => {
+      res.json(dbExample);
+      console.log("post request successful");
     });
   });
 
-  app.put('/api/burgers/:id', function (req, res) {
-    db.burger.update({ devoured: 'TRUE' },
-      { where: { id: req.params.id } })
-      .then(function (data) {
-        res.json(data);
-      });
-  });
-
-  app.delete('/api/burgers/:id', function (req, res) {
-    db.burger.destroy({
-      where: {
-        id: req.params.id,
-      },
-    }).then(function (data) {
-      res.json(data);
+  // Delete an example by id
+  app.delete('/api/burgers/:id', (req, res) => {
+    db.burgers.destroy({ where: { id: req.params.id } }).then((
+      dbExample
+    ) => {
+      res.json(dbExample);
+      console.log("delete request successful");
     });
   });
 };
