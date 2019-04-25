@@ -22,7 +22,9 @@
     "inquirer": "^6.3.1",
     "line": "^0.1.8",
     "lint": "^1.1.2",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.7.5"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
