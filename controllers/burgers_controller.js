@@ -6,14 +6,13 @@ const db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get('/', function (req, res) {
-    res.render('index');
-  });
-
   app.get("/", function (req, res){
-    db.burgers.findAll({}).then(burger => {
-      res.json(burger);
-      console.log("get request successful");
+    db.burgers.findAll({}).then(data => {
+      var hbsObject = {
+        burger: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
     });
   });
 
