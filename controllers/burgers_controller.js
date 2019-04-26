@@ -32,16 +32,38 @@ module.exports = function(app) {
     });
   });
 
-  app.put("/api/burgers", function(req, res) {
-    db.burgers
-      .update(req.body, {
+//   app.put("/api/burgers/:id", function(req, res) {
+//     db.burgers
+//       .update(req.body, {
+//         where: {
+//           id: req.params.id
+//         }
+//       })
+//       .then(function(burger) {
+//         res.json(burger);
+//         console.log("put request successful");
+//       });
+//   });
+// };
+
+
+app.put("/api/burgers/:id", function(req, res) {
+  console.log("id = " + req.params.id);
+  db.burgers.update(
+      {
+        devoured: true
+      },
+      {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
-      })
-      .then(function(burger) {
-        res.json(burger);
-        console.log("put request successful");
+      },
+  ).then(function(result) {
+          if (result.changedRows == 0) {
+              return res.status(404).end();
+          } else {
+              res.status(200).end();
+          }
       });
-  });
-};
+    });
+  };
