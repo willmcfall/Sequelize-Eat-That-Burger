@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
 module.exports = function (sequelize, DataTypes) {
-  const burgers = sequelize.define(
+  const burger = sequelize.define(
     'burgers',
     {
       id: {
@@ -16,8 +16,9 @@ module.exports = function (sequelize, DataTypes) {
       devoured: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false, 
       },
     },
   );
-  return burgers;
+  return burger;
 };

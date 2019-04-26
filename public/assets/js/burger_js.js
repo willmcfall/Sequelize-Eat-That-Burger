@@ -28,7 +28,7 @@ $(function () {
             burger_name: $('#create-burger')
                 .val()
                 .trim(),
-            devoured: 0,
+            devoured: false,
         };
 
         console.log(newBurger);

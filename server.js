@@ -1,5 +1,3 @@
-// // This file sets up the server and loads express for use across the application
-
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
@@ -7,12 +5,12 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8069;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("./public"));
+app.use(express.static("public"));
 
 // Handlebars
 app.engine(
@@ -22,10 +20,6 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-
-app.get('/', function (req, res) {
-  res.render('index');
-});
 
 // Routes
 require("./controllers/burgers_controller")(app);
